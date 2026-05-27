@@ -1,0 +1,143 @@
+# ============================================================
+# MESA runtime outputs (large, regenerable, do NOT commit)
+# ============================================================
+LOGS/
+LOGS_*/
+photos/
+photos_*/
+pgstar_out/
+.mesa_temp_cache/
+
+# MESA model checkpoint files (.mod) are large binaries; do not commit.
+# Note: this collides with Fortran .mod module files, but those live inside
+# make/ subdirectories of MESA work dirs and are also ignored below.
+*.mod
+
+# MESA test-hub config (per-run)
+testhub.yml
+
+# ============================================================
+# MESA / Fortran build artifacts
+# ============================================================
+**/make/*.o
+**/make/*.smod
+*.a
+*.lst
+
+# Compiled MESA binaries
+**/star
+**/mk
+**/rn
+**/rn1
+**/re
+**/ck
+**/clean
+
+# But DO keep the source shell scripts (allow these specific paths if needed)
+!baseline/rn
+!baseline/clean
+!baseline/mk
+!baseline/re
+!baseline/ck
+!coupled_prescription/rn
+!coupled_prescription/clean
+!coupled_prescription/mk
+!coupled_prescription/re
+!coupled_prescription/ck
+
+# ============================================================
+# Python
+# ============================================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+*.egg-info/
+.Python
+build/
+dist/
+*.egg
+.pytest_cache/
+.coverage
+.tox/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# ============================================================
+# Jupyter
+# ============================================================
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# ============================================================
+# Large data / output files
+# ============================================================
+*.h5
+*.hdf5
+*.fits
+*.npz
+*.npy
+*.pkl
+*.pickle
+*.data.gz
+*.txt.gz
+
+# But keep small example data if explicitly placed in example_data/
+!example_data/*.npz
+!example_data/*.h5
+
+# ============================================================
+# LaTeX build artifacts (if writing paper in repo)
+# ============================================================
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.dvi
+*.lof
+*.lot
+*.run.xml
+*-blx.bib
+*.bcf
+
+# Keep the actual PDF outputs if you want them committed
+# (comment the next line if you want to commit compiled PDFs)
+# paper/*.pdf
+
+# ============================================================
+# macOS
+# ============================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# ============================================================
+# Editors / IDEs
+# ============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# ============================================================
+# Environment / secrets
+# ============================================================
+.env
+.env.local
+*.pem
+*.key
